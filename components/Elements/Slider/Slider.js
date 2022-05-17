@@ -2,19 +2,22 @@ import { useState } from "react";
 import "./Slider.module.scss";
 import css from "./Slider.module.scss";
 
-const Slider = () => {
-  const testimonials = [
-    { id: 0, name: "Jon", text: "lorem ipsum hehehe" },
-    { id: 1, name: "Alex", text: "lorem ipsum ueueueueuuee" },
-    { id: 2, name: "Peter", text: "lorem ipsum jijijijij" },
-    { id: 3, name: "Face", text: "lorem ipsum hahahahahaha" },
-  ];
+const Slider = ({ content }) => {
+  // const testimonials = [
+  //   { id: 100, name: "Jon", text: "lorem ipsum hehehe" },
+  //   { id: 200, name: "Alex", text: "lorem ipsum ueueueueuuee" },
+  //   { id: 34, name: "Peter", text: "lorem ipsum jijijijij" },
+  //   { id: 152, name: "Face", text: "lorem ipsum hahahahahaha" },
+  //   { id: 235, name: "Face", text: "lorem ipsum hahahahahaha" },
+  // ];
 
-  const [text, setText] = useState(testimonials[0].name);
+  console.log(content);
+
+  const [text, setText] = useState(content[0].id);
 
   let handleClick = (index) => {
     console.log(index);
-    let testimonialsSlider = testimonials[index].name;
+    let testimonialsSlider = content[index].id;
     setText(testimonialsSlider);
   };
 
@@ -22,7 +25,7 @@ const Slider = () => {
     <div className="slider">
       <div>{text}</div>
       <div className={css.sliderContainer}>
-        {testimonials.map((item, i) => {
+        {content.map((item, i) => {
           return (
             <h1 key={i} className={css.circle} onClick={() => handleClick(i)}>
               O
