@@ -19,9 +19,13 @@ export const getStaticProps = async () => {
   };
 };
 
-// const myArray = [100, 200, 34, 152, 235];
-let num = 100;
-let num2 = 200;
+const titles = [
+  { id: 100, title: "This is a hard coded title for post 100" },
+  { id: 200, title: "This is a hard coded title for post 200" },
+  { id: 34, title: "This is a hard coded title for post 34" },
+  { id: 152, title: "This is a hard coded title for post 152" },
+  { id: 235, title: "This is a hard coded title for post 235" },
+];
 
 const Testimonials = ({ content }) => {
   // console.log(content);
@@ -36,7 +40,7 @@ const Testimonials = ({ content }) => {
           ></div>
         );
       })} */}
-      <Slider content={content} />
+      <Slider content={content} titles={titles} />
     </>
   );
 };
