@@ -1,0 +1,27 @@
+.tooltip {
+  background: #001d4a;
+  border-radius: 5px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  min-width: 240px;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: auto;
+}
+
+.tooltip__caret {
+  background: rgb(0, 0, 0);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  height: 10px;
+  opacity: 1;
+  transform: none;
+  width: 10px;
+}
+
+.tooltip__icon {
+  cursor: pointer;
+}

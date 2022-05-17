@@ -1,0 +1,143 @@
+.hs-button {
+  background-color: $main-color;
+  border: 2px solid $main-color;
+  border-radius: 200px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: $font-medium;
+  margin: 20px 0 15px 0;
+  min-height: 35px;
+  min-width: 100%;
+  outline: 0;
+  padding: 6px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  height: 37px;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $green;
+    border-color: $green;
+  }
+}
+
+.hs-form-field {
+  margin-bottom: 25px;
+}
+
+.hs-field-desc {
+  color: $checkbox-label-color;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.hs-fieldtype-text label,
+.hs-fieldtype-textarea label,
+.hs-fieldtype-checkbox > label {
+  color: $main-color;
+  display: block;
+  font-family: $base-font;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.hs-input {
+  background-color: $white;
+  border: 1px solid $form-border-color;
+  border-radius: 4px;
+  color: $main-color;
+  font-size: 13px;
+  padding: 13px 16px;
+  width: 100% !important;
+}
+
+.hs-fieldtype-textarea textarea {
+  height: 170px;
+}
+
+.hs-input:focus {
+  border: 1px solid $form-border-color;
+  outline: none;
+}
+
+.hs-input::placeholder {
+  color: $form-placeholder-color;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.hs-fieldtype-checkbox > label {
+  margin-bottom: 25px;
+}
+
+.hs-form-checkbox {
+  flex: 1;
+  margin: 10px 0;
+}
+
+.hs-form-checkbox {
+  flex: 1 calc(50% - 1rem);
+  margin-left: 1rem;
+}
+
+.hs-error-msgs {
+  margin: 10px 0;
+}
+
+.hs-fieldtype-text label.hs-error-msg {
+  color: $danger !important;
+  font-weight: $font-regular !important;
+}
+
+.hs-form {
+  .input {
+    margin-right: 0 !important
+  }
+
+  .form__group label, .checkbox-group__header, .hs-fieldtype-text label, .hs-fieldtype-textarea label, .hs-fieldtype-checkbox > label {
+    color: $main-color;
+    display: block;
+    font-family: $base-font;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .form__group input, .form__group textarea, .hs-input {
+    background-color: $white;
+    border: 1px solid $form-border-color;
+    border-radius: 4px;
+    color: $main-color;
+    font-size: 13px;
+    padding: 13px 16px;
+    width: 100% !important;
+  }
+
+  .form-columns-1,
+  .form-columns-2 {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+
+    > div {
+      padding-left: 8px;
+      padding-right: 8px;
+
+      label {
+        font-weight: $font-medium;
+      }
+    }
+  }
+
+  .inputs-list {
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 5px 0 15px 0;
+    padding: 0;
+  }
+}
+
+.hs-error-msgs {
+  margin: 10px 0;
+}

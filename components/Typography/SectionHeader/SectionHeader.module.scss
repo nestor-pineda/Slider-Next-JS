@@ -1,0 +1,23 @@
+@import "./scss/_variables";
+@import "./scss/_mixins";
+
+
+.sectionHeader {
+  font-weight: $font-medium;
+  font-size: 2.8rem;
+  line-height: 1.15em;
+  @include md {
+    font-size: 2.2rem;
+  }
+  @include sm {
+    font-size: 1.8rem;
+  }
+  color: $main-color;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.sectionHeaderPost {
+  font-size: 35px;
+  line-height: 1.17em;
+}

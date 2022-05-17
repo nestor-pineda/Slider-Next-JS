@@ -1,0 +1,128 @@
+@mixin overxl {
+  @media (min-width: $grid-breakpoint-xl + 1) {
+    @content;
+  }
+}
+@mixin onlyxl {
+  @media (min-width: $grid-breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: $grid-breakpoint-xl - 1) {
+    @content;
+  }
+}
+
+@mixin fromlg {
+  @media (min-width: $grid-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin onlylg {
+  @media (max-width: $grid-breakpoint-xl - 1) and (min-width: $grid-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: $grid-breakpoint-lg - 1) {
+    @content;
+  }
+}
+
+@mixin frommd {
+  @media (min-width: $grid-breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin onlymd {
+  @media (max-width: $grid-breakpoint-lg - 1) and (min-width: $grid-breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: $grid-breakpoint-md - 1) {
+    @content;
+  }
+}
+
+@mixin onlysm {
+  @media (max-width: $grid-breakpoint-md - 1) and (min-width: $grid-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: $grid-breakpoint-sm - 1) {
+    @content;
+  }
+}
+
+@mixin onlyxs {
+  @media (max-width: $grid-breakpoint-sm - 1) and (min-width: $grid-breakpoint-xs) {
+    @content;
+  }
+}
+
+@mixin xxs {
+  @media (max-width: $grid-breakpoint-xs - 1) {
+    @content;
+  }
+}
+
+@mixin responsiveProperties($properties, $map) {
+  @each $property in $properties {
+    #{$property}: map-get($map, "xl");
+  }
+
+  @include lg {
+    @each $property in $properties {
+      #{$property}: map-get($map, "lg");
+    }
+  }
+
+  @include md {
+    @each $property in $properties {
+      #{$property}: map-get($map, "md");
+    }
+  }
+
+  @include sm {
+    @each $property in $properties {
+      #{$property}: map-get($map, "sm");
+    }
+  }
+
+  @include xs {
+    @each $property in $properties {
+      #{$property}: map-get($map, "xs");
+    }
+  }
+
+  @include xxs {
+    @each $property in $properties {
+      #{$property}: map-get($map, "xxs");
+    }
+  }
+}
+
+
+@mixin placeholder() {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}

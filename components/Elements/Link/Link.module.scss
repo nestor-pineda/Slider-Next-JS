@@ -1,0 +1,57 @@
+@import "./scss/_variables";
+@import "./scss/_mixins";
+
+.link {
+  text-decoration: none;
+}
+
+.button {
+  font-weight: $font-medium;
+  min-width: 130px;
+  height: 37px;
+  padding: 2px 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.75rem;
+  border: 0 solid transparent;
+  cursor: pointer;
+  outline: 0;
+  border-radius: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $main-color;
+  }
+}
+
+.buttonGreen {
+  color: $white;
+  background-color: $green;
+  border-color: $green;
+}
+
+.buttonWhite {
+  color: $main-color;
+  background-color: $white
+}
+
+.buttonMain {
+  border: 1px solid $main-color;
+  color: $main-color;
+  &:hover {
+    color: $white;
+  }
+  i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+}
+
+.buttonBig {
+  font-size: 1rem;
+  padding: 15px 20px;
+  min-width: 225px;
+  height: auto;
+}
