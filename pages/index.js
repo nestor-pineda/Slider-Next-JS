@@ -11,9 +11,10 @@ import Link from "../components/Elements/Link/Link";
 import WysiwigContent from "../components/Typography/WysiwigContent/WysiwigContent";
 import SectionCentered from "../components/Typography/SectionCentered/SectionCentered";
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   let content = await RequestHelper.GETrequest(
     process.env.API_URL + "/wp-json/wp/v2/pages/2333",
+    // process.env.API_URL + "/wp-json/wp/v2/posts/?orderby=rand",
     {}
   ).then((result) => {
     return result.body;
@@ -26,9 +27,10 @@ export async function getStaticProps() {
 
     revalidate: 60,
   };
-}
+};
 
-export default function Page({ content }) {
+const Page = ({ content }) => {
+  console.log(content);
   return (
     <LayoutBody>
       <SectionCentered>
@@ -43,7 +45,7 @@ export default function Page({ content }) {
                   link={{
                     type: "internal",
                     label: "See opinions",
-                    path: "/tesimonials",
+                    path: "/testimonials",
                   }}
                 />
               </ButtonGroup>
@@ -53,4 +55,6 @@ export default function Page({ content }) {
       </SectionCentered>
     </LayoutBody>
   );
-}
+};
+
+export default Page;
