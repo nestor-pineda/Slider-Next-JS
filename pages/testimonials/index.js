@@ -11,7 +11,7 @@ import RequestHelper from "../../helpers/RequestHelper";
 export const getStaticProps = async () => {
   let content = await RequestHelper.GETrequest(
     process.env.API_URL +
-      `/wp-json/wp/v2/posts?include[]=100&include[]=200&include[]=34&include[]=152&include[]=235`,
+      `/wp-json/wp/v2/posts?include[]=100&include[]=200&include[]=34&include[]=152&include[]=235&include[]=56`,
     {}
   ).then((result) => {
     return result.body;
@@ -27,11 +27,12 @@ export const getStaticProps = async () => {
 };
 
 const titles = [
-  { id: 100, title: "This is a hard coded title for post 235" },
-  { id: 200, title: "This is a hard coded title for post 200" },
-  { id: 34, title: "This is a hard coded title for post 152" },
-  { id: 152, title: "This is a hard coded title for post 100" },
-  { id: 235, title: "This is a hard coded title for post 34" },
+  { title: "This is a hard coded title for post 235" },
+  { title: "This is a hard coded title for post 200" },
+  { title: "This is a hard coded title for post 152" },
+  { title: "This is a hard coded title for post 100" },
+  { title: "This is a hard coded title for post 34" },
+  { title: "This is a hard coded title for post 56" },
 ];
 
 const Testimonials = ({ content }) => {

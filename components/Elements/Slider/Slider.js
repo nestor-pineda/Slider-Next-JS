@@ -5,44 +5,46 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import * as gtag from "../../../lib/gtag";
 
 const Slider = ({ content, titles }) => {
-  // console.log(content);
-
   const [text, setText] = useState(content[0].content.rendered);
   const [author, setAuthor] = useState(content[0].title.rendered);
   const [title, setTitle] = useState(titles[0].title);
-  const [index, setIndex] = useState(1);
+  const [slideIndex, setSlideIndex] = useState(1);
 
-  /* This handler functions increse and decrese the slider index by one eache time we click. The index is passed to the text, author, and title states to iterate the data in the array. */
+  /* This handler functions increse and decrese the slider slideIndex by one eache time we click. The slideIndex is passed to the text, author, and title states to iterate the data in the array. */
 
-  let handleIncreaseIndex = () => {
-    let increseIndex = index + 1;
-    setIndex(increseIndex);
-    if (index > 5) {
-      setIndex(4);
+  let IncreaseSlideIndex = () => {
+    if (slideIndex !== content.length - 1) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === content.length - 1) {
+      setSlideIndex(1);
     }
-    let testimonialsSlider = content[index].content.rendered;
+
+    let testimonialsSlider = content[slideIndex].content.rendered;
     setText(testimonialsSlider);
-    let testimonialAuthor = content[index].title.rendered;
+    let testimonialAuthor = content[slideIndex].title.rendered;
     setAuthor(testimonialAuthor);
-    let testimonialTitle = titles[index].title;
+    let testimonialTitle = titles[slideIndex].title;
     setTitle(testimonialTitle);
+
+    console.log(content[slideIndex]);
   };
 
-  let handleDecreaseIndex = () => {
-    let increseIndex = index - 1;
-    setIndex(increseIndex);
-    if (index <= 0) {
-      setIndex(0);
+  let decreaseSlideIndex = () => {
+    if (slideIndex !== 1) {
+      setSlideIndex(slideIndex - 1);
+    } else if (slideIndex === 1) {
+      setSlideIndex(content.length - 1);
     }
-    let testimonialsSlider = content[index].content.rendered;
+    let testimonialsSlider = content[slideIndex].content.rendered;
     setText(testimonialsSlider);
-    let testimonialAuthor = content[index].title.rendered;
+    let testimonialAuthor = content[slideIndex].title.rendered;
     setAuthor(testimonialAuthor);
-    let testimonialTitle = titles[index].title;
+    let testimonialTitle = titles[slideIndex].title;
     setTitle(testimonialTitle);
+    console.log(content[slideIndex]);
   };
 
-  console.log(`the index is: ${index}`);
+  console.log(`the slideIndex is: ${slideIndex}`);
 
   const nextClicked = () => {
     gtag.event({
@@ -77,7 +79,7 @@ const Slider = ({ content, titles }) => {
         <div className={css.arrows}>
           <p
             onClick={() => {
-              handleDecreaseIndex();
+              decreaseSlideIndex();
               prevClicked();
             }}
             className={css.arrow}
@@ -86,7 +88,7 @@ const Slider = ({ content, titles }) => {
           </p>
           <p
             onClick={() => {
-              handleIncreaseIndex();
+              IncreaseSlideIndex();
               nextClicked();
             }}
             className={css.arrow}
