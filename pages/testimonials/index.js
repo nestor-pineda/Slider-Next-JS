@@ -20,28 +20,19 @@ export const getStaticProps = async () => {
 };
 
 const titles = [
-  { id: 100, title: "This is a hard coded title for post 100" },
+  { id: 100, title: "This is a hard coded title for post 235" },
   { id: 200, title: "This is a hard coded title for post 200" },
-  { id: 34, title: "This is a hard coded title for post 34" },
-  { id: 152, title: "This is a hard coded title for post 152" },
-  { id: 235, title: "This is a hard coded title for post 235" },
+  { id: 34, title: "This is a hard coded title for post 152" },
+  { id: 152, title: "This is a hard coded title for post 100" },
+  { id: 235, title: "This is a hard coded title for post 34" },
 ];
 
 const Testimonials = ({ content }) => {
   // console.log(content);
   return (
-    <>
-      <h1>This is the testimonial page</h1>
-      {/* {content.map((item, i) => {
-        return (
-          <div
-            key={item.id}
-            dangerouslySetInnerHTML={{ __html: item.content.rendered }}
-          ></div>
-        );
-      })} */}
+    <div>
       <Slider content={content} titles={titles} />
-    </>
+    </div>
   );
 };
 
