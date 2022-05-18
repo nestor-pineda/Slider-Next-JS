@@ -1,4 +1,11 @@
 import Slider from "../../components/Elements/Slider/Slider";
+import LayoutBody from "../../components/Layout/LayoutBody/LayoutBody";
+import {
+  Col,
+  Container,
+  Row,
+} from "../../components/Layout/LayoutGrid/LayoutGrid";
+import SectionCentered from "../../components/Typography/SectionCentered/SectionCentered";
 import RequestHelper from "../../helpers/RequestHelper";
 
 export const getStaticProps = async () => {
@@ -30,9 +37,17 @@ const titles = [
 const Testimonials = ({ content }) => {
   // console.log(content);
   return (
-    <div>
-      <Slider content={content} titles={titles} />
-    </div>
+    <LayoutBody>
+      <SectionCentered>
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <Slider content={content} titles={titles} />
+            </Col>
+          </Row>
+        </Container>
+      </SectionCentered>
+    </LayoutBody>
   );
 };
 

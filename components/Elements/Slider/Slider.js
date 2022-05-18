@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Slider.module.scss";
 import css from "./Slider.module.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import * as gtag from "../../../lib/gtag";
 
 const Slider = ({ content, titles }) => {
   // console.log(content);
@@ -9,7 +10,6 @@ const Slider = ({ content, titles }) => {
   const [text, setText] = useState(content[0].content.rendered);
   const [author, setAuthor] = useState(content[0].title.rendered);
   const [title, setTitle] = useState(titles[0].title);
-
   const [index, setIndex] = useState(1);
 
   /* This handler functions increse and decrese the slider index by one eache time we click. The index is passed to the text, author, and title states to iterate the data in the array. */
@@ -44,6 +44,22 @@ const Slider = ({ content, titles }) => {
 
   console.log(`the index is: ${index}`);
 
+  const nextClicked = () => {
+    gtag.event({
+      action: "nextClicked",
+      category: "slider",
+      lable: "next post",
+    });
+  };
+
+  const prevClicked = () => {
+    gtag.event({
+      action: "prevClicked",
+      category: "slider",
+      lable: "next post",
+    });
+  };
+
   return (
     <div className={css.slider}>
       <div className={css.title}>
@@ -59,10 +75,22 @@ const Slider = ({ content, titles }) => {
           dangerouslySetInnerHTML={{ __html: author }}
         ></p>
         <div className={css.arrows}>
-          <p onClick={() => handleDecreaseIndex()} className={css.arrow}>
+          <p
+            onClick={() => {
+              handleDecreaseIndex();
+              prevClicked();
+            }}
+            className={css.arrow}
+          >
             <BsChevronLeft />
           </p>
-          <p onClick={() => handleIncreaseIndex()} className={css.arrow}>
+          <p
+            onClick={() => {
+              handleIncreaseIndex();
+              nextClicked();
+            }}
+            className={css.arrow}
+          >
             <BsChevronRight />
           </p>
         </div>
