@@ -1,4 +1,5 @@
 import Slider from "../../components/Elements/Slider/Slider";
+
 import LayoutBody from "../../components/Layout/LayoutBody/LayoutBody";
 import {
   Col,
@@ -8,10 +9,11 @@ import {
 import SectionCentered from "../../components/Typography/SectionCentered/SectionCentered";
 import RequestHelper from "../../helpers/RequestHelper";
 
+/* We use the GETrequest helper function to fetch our desired posts*/
 export const getStaticProps = async () => {
   let content = await RequestHelper.GETrequest(
     process.env.API_URL +
-      `/wp-json/wp/v2/posts?include[]=100&include[]=200&include[]=34&include[]=152&include[]=235&include[]=56`,
+      `/wp-json/wp/v2/posts?include[]=100&include[]=200&include[]=34&include[]=152&include[]=235`,
     {}
   ).then((result) => {
     return result.body;
@@ -26,17 +28,16 @@ export const getStaticProps = async () => {
   };
 };
 
+/* Hard coded titles for each post */
 const titles = [
-  { title: "This is a hard coded title for post 235" },
-  { title: "This is a hard coded title for post 200" },
-  { title: "This is a hard coded title for post 152" },
-  { title: "This is a hard coded title for post 100" },
-  { title: "This is a hard coded title for post 34" },
-  { title: "This is a hard coded title for post 56" },
+  { id: 235, mainTitle: "Lorem ipsum dolor sit amet, consectetur" },
+  { id: 200, mainTitle: "Sed do eiusmod tempor incididunt ut labore" },
+  { id: 152, mainTitle: "Dolore magna aliqua ut enim ad minim" },
+  { id: 100, mainTitle: "Quis nostrud exercitation ullamco laboris" },
+  { id: 34, mainTitle: "Aliquip ex ea commodo consequat duis aute" },
 ];
 
 const Testimonials = ({ content }) => {
-  // console.log(content);
   return (
     <LayoutBody>
       <SectionCentered>
